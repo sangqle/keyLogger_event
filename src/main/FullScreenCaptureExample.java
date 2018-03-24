@@ -30,11 +30,10 @@ public class FullScreenCaptureExample implements Runnable{
 			  String path = "D://SangB1699999//"+temp+".jpg"; // Chuổi lưu đương dẫn lưu file ảnh
 	          
 			  Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()); // Lấy full màng hình.
-			  BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+			  BufferedImage screenFullImage = robot.createScreenCapture(screenRect); // save in bufferd Image to write in file object 
 			  //File file = new File(fileName);
-			  ImageIO.write(screenFullImage, format, new File(path));
+			  ImageIO.write(screenFullImage, format, new File(path)); // initialize File object to write
 			  
-
 			   System.out.println("A full screenshot saved: "+index);
 		       } catch (AWTException | IOException ex) {
 		    	   System.err.println(ex.toString());
@@ -42,17 +41,17 @@ public class FullScreenCaptureExample implements Runnable{
 		       } 
 		  }
 	public static void main(String[] args) {
-
+		// to do something here
 	  }
-    @Override
+    @Override // override run fuction from Thread object
     public void run() {
         while(true)
         {
-            capTureScreen(); // capture screen after 3s.
+            capTureScreen(); // screen capture after 10s.
             try {
-                Thread.sleep(5000);
+                Thread.sleep(10000); // is 10s
             } catch (InterruptedException ex) {
-                Logger.getLogger(FullScreenCaptureExample.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FullScreenCaptureExample.class.getName()).log(Level.SEVERE, null, ex); // i don't know what is it expception
             }
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

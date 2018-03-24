@@ -27,9 +27,7 @@ public class WriteFile implements Runnable{
 		WriteFile sang = new WriteFile();
 		//sang.writeFile("tran cong an");
 		//System.out.println("le quang sang");
-		
 	}
-
     @Override
     public void run() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
